@@ -18,6 +18,8 @@ sed -i 's/192.168.1.1/192.168.1.2/g' package/base-files/files/bin/config_generat
 # Modify default root's password（FROM 'password'[$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.] CHANGE TO 'your password'）
 sed -i 's/root::0:0:99999:7:::/root:$1$f1oZaeVG$WDDUVvy1ryUYsfJ/SANBj/:18926:0:99999:7:::/g' /etc/shadow
 
+svn co https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
+# svn co https://github.com/sirpdboy/NetSpeedTest package/NetSpeedTest
 
 
 
