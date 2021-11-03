@@ -23,8 +23,8 @@ sed -i 's/192.168.1.1/192.168.1.2/g' package/base-files/files/bin/config_generat
 # sed -i "s/OpenWrt /zhj213 compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 sed -i 's/root::0:0:99999:7:::/root:$1$f1oZaeVG$WDDUVvy1ryUYsfJ/SANBj/:0:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings
 
-#
 # sed -i 's@.*${interface:+-i $interface}*@#&@g' /etc/init.d/ttyd
+sed -i 's/${interface:+-i $interface}/#${interface:+-i $interface}/g' etc/init.d/ttyd
 
 # Add app
 svn co https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
