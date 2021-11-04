@@ -10,21 +10,21 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.1.2/g' package/base-files/files/bin/config_generate
 
 # Modify default root's password（FROM 'password'[$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.] CHANGE TO 'your password'）
-# sed -i 's/root::0:0:99999:7:::/root:$1$f1oZaeVG$WDDUVvy1ryUYsfJ/SANBj/:18926:0:99999:7:::/g' /etc/shadow
+sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$f1oZaeVG$WDDUVvy1ryUYsfJ/SANBj/:0:0:99999:7:::/g' /etc/shadow
+
 # 密码为空
 # sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 # 增加名字zhj213
 # sed -i "s/OpenWrt /zhj213 compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
-sed -i 's/root::0:0:99999:7:::/root:$1$f1oZaeVG$WDDUVvy1ryUYsfJ/SANBj/:0:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings
 
-# sed -i 's@.*${interface:+-i $interface}*@#&@g' /etc/init.d/ttyd
-sed -i 's/${interface:+-i $interface}/#${interface:+-i $interface}/g' etc/init.d/ttyd
+
+
 
 # Add app
 svn co https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
