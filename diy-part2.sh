@@ -9,8 +9,7 @@
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
-# Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
+
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.1.2/g' package/base-files/files/bin/config_generate
@@ -24,8 +23,6 @@ sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$f1oZaeV
 # sed -i "s/OpenWrt /zhj213 compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 
-
-
 # Add app
 svn co https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
 # 全新的[argon-主题]此主题玩法很多,这里看说明【https://github.com/jerrykuku/luci-theme-argon/blob/18.06/README_ZH.md】
@@ -34,7 +31,8 @@ rm -rf ./package/lean/luci-theme-argon && git clone -b 18.06 https://github.com/
 # svn co https://github.com/sirpdboy/NetSpeedTest package/NetSpeedTest
 # git clone https://github.com/destan19/OpenAppFilter package/lean/luci-app-oaf
 
-
+# Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
 
 # sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 # Add luci-app-amlogic
